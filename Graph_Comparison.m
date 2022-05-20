@@ -3,7 +3,7 @@ clear; clc;
 %{
 %}
 
-Title = 'Volume of fibrosis over time for different λ1 values';
+Title = 'Volume of fibrosis over time for different δ values';
 
 %==============================Patient 01==================================
 %==========================================================================
@@ -72,9 +72,17 @@ model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rp5 (λ1= 10e-1)';  k
 model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rp6 (λ1= 12e-1)';  k=k+1;  %
 %model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rptest (λ1 = 1, thresh=1e-4)';  k=k+1;  %
 model_list_p01(1,k) = ' '; k=k+1; %
-model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rptest (δ= 0.5)';  k=k+1;  % δ
-model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rp6 (δ= 5)';  k=k+1;       %
-model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rp7 (δ= 50)';  k=k+1;      %
+model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rprob0 (δ= 0)';    k=k+1;  % δ
+model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rprob0.5 (δ= 0.5)';  k=k+1;  %
+%model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rprob2 (δ= 5)';    k=k+1;  %
+%model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rprob3 (δ= 50)';   k=k+1;  %
+model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rprob1 (δ= 100)';  k=k+1;  %
+model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rprob2 (δ= 200)';  k=k+1;  %
+model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rprob3 (δ= 300)';  k=k+1;  %
+model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rprob4 (δ= 400)';  k=k+1;  %
+model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rprob5 (δ= 500)';  k=k+1;  %
+model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rprob6 (δ= 600)';  k=k+1;  %
+model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rprob7 (δ= 700)';  k=k+1;  %
 model_list_p01(1,k) = ' '; k=k+1; %
 model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rd0 (δ1= 0)';  k=k+1;      % δ1
 model_list_p01(1,k) = 'Reaction parameters (λ1, δ)\model Rd1 (δ1= 1e-2)';  k=k+1;   % δ1
@@ -90,24 +98,27 @@ model_list_p01(1,k) = '---------------------------------------------------------
 %--ECM parameters (φ0 and φ1)-----------------------------------------------
 model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model E0 (φ0= 0, φ1= 0)';  k=k+1; %
 model_list_p01(1,k) = ' '; k=k+1; %
-model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EC1 (φ0= 1e+1)';  k=k+1; %
-model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EC2 (φ0= 1e+2)';  k=k+1; %
-model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EC3 (φ0= 1e+3)';  k=k+1; %
-model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EC4 (φ0= 1e+4)';  k=k+1; %
-model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EC5 (φ0= 1e+5)';  k=k+1; %
-model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EC6 (φ0= 1e+6)';  k=k+1; %
-%model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model 0 (φ0=7.465e+1)';  k=k+1; %
-%model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model 0 (φ0=7.465e+2)';  k=k+1; %
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EC1 (φ0= 1e+1)';   k=k+1; %
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EC2 (φ0= 1e+2)';   k=k+1; %
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EC3 (φ0= 1e+3)';   k=k+1; %
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EC4 (φ0= 1e+4)';   k=k+1; %
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EC5 (φ0= 1e+5)';   k=k+1; %
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EC6 (φ0= 1e+6)';   k=k+1; %
+%model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model 0 (φ0=7.465e+1)'; k=k+1; %
+%model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model 0 (φ0=7.465e+2)'; k=k+1; %
 model_list_p01(1,k) = ' '; k=k+1; %
 %model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF1 (φ1= 1e+1)';  k=k+1; %
-model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF1 (φ1= 1e+2)';  k=k+1; %
-model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF2 (φ1= 2e+2)';  k=k+1; %
-model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF3 (φ1= 3e+2)';  k=k+1; %
-model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF4 (φ1= 4e+2)';  k=k+1; %
-model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF5 (φ1= 5e+2)';  k=k+1; %
-model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF6 (φ1= 6e+2)';  k=k+1; %
-model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF7 (φ1= 8e+2)';  k=k+1; %
-model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF8 (φ1= 1e+3)';  k=k+1; %
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF1 (φ1= 1e+2)';   k=k+1; %
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF2 (φ1= 2e+2)';   k=k+1; %
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF3 (φ1= 3e+2)';   k=k+1; %
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF4 (φ1= 4e+2)';   k=k+1; %
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF5 (φ1= 5e+2)';   k=k+1; %
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF6 (φ1= 6e+2)';   k=k+1; %
+
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF7 (φ1= 7e+2)';   k=k+1; %
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF8 (φ1= 8e+2)';   k=k+1;  %
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF9 (φ1= 10e+2)';  k=k+1;  %
+model_list_p01(1,k) = 'ECM parameters (φ0, G0)\model EF10 (φ1= 12e+2)';  k=k+1; %
 %--------------------------------------------------------------------------
 %}
 
@@ -115,33 +126,6 @@ title_01='Patient 01';
 indx_01 = listdlg('ListString',  model_list_p01, 'ListSize',[350,550], 'Name', title_01);
 
 
-
-%==============================Patient 05==================================
-%==========================================================================
-h=1;
-model_list_p05=string(zeros(1,h));
-
-%--list of models 0 hapto--------------------------------------------------
-model_list_p05(1,h) = 'model1 (0 diff - 0 adv)';  h=h+1; %
-%model_list_p05(1,h) = 'model2 (e-5)';  h=h+1;                 % same as 0
-%model_list_p05(1,h) = 'model4 (0.1e-3 diff - 0 adv)';  h=h+1; %
-%model_list_p05(1,h) = 'model5 (0.1e-2 diff - 0 adv)';  h=h+1; %
-model_list_p05(1,h) = 'model6 (0.1e-1 diff - 0 adv)';  h=h+1; %
-model_list_p05(1,h) = 'model7 (0.1e+0 diff - 0 adv)';  h=h+1; %
-model_list_p05(1,h) = 'model9 (0.5e+0 diff - 0 adv)';  h=h+1; %
-model_list_p05(1,h) = '-------------------------------------------------------------------'; h=h+1;
-%--------------------------------------------------------------------------
-%}
-
-%--list of models 0 diff---------------------------------------------------
-model_list_p05(1,h) = 'model10 (0 diff - 0.1e-3 adv)';  h=h+1; %
-model_list_p05(1,h) = 'model11 (0 diff - 0.5e-3 adv)';  h=h+1; %
-model_list_p05(1,h) = '-------------------------------------------------------------------'; h=h+1; %
-%--------------------------------------------------------------------------
-%}
-
-title_05='Patient 05';
-indx_05 = listdlg('ListString',  model_list_p05, 'ListSize',[200,450], 'Name', title_05);
 
 %==========================================================================
 
@@ -178,31 +162,13 @@ for p=1:length(indx_01)    % opens all the figures chosen from the list
     hp(1,p)=openfig(hp_dir(1,p));
 end
 
-%===========================Patient 05 plots===============================
-mm=0;
-
 if isempty(p)
     p=0;
 end
 
-for g=1:length(indx_05)
-    % g=p+1:length(indx_01)+length(indx_05)
-    mod=model_list_p05(1,indx_05(1,g));
-    variables(1,p+g)=mod;
-    if variables(1,p+g)=='-------------------------------------------------------------------'
-        mm=mm+1;
-        continue
-    elseif variables(1,p)==' '
-        m=m+1;
-        continue
-    end
-    hp_dir(1,p+g)=fullfile( 'c:', 'Users', 'raffi', 'Desktop', 'Paraview Patients', 'P05', variables(1,p+g), 'Volume Data', 'threshold volume.fig');
-    hp(1,p+g)=openfig(hp_dir(1,p+g));
-end
-
 hp = hp(hp~=0);
 
-indx_length=length(indx_01)+length(indx_05)-m-mm;
+indx_length = length(indx_01)-m;
 
 %---subplot properties---
 figure
@@ -223,7 +189,7 @@ for q=1:indx_length% copies all plots on the subplot
     copyobj(allchild(get(hp(1,q),'CurrentAxes')),h(1));
 end
 
-if isempty(indx_01) && isempty(indx_05)   % if cancel prompt then it closes the empty subplot
+if isempty(indx_01)   % if cancel prompt then it closes the empty subplot
     close(figure(1))
 else
     for i=1:indx_length
